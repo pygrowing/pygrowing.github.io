@@ -4,8 +4,46 @@
   
     
     <entry>
+      <title><![CDATA[web开发中的浏览器兼容性问题]]></title>
+      <url>http://yoursite.com/2017/01/23/web%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>在web开发中常常会遇到浏览器在兼容方面的问题，不同的浏览器最终呈现的结果可能会造成页面显示效果不统一的情况，HTML5的出现对兼容性问题做出了相应的努力，在HTML5中一旦浏览器不支持HTML5的某项功能，针对该功能的备选行为就会悄悄运行。但还有一些兼容性的问题并没有得到有效的解决，所以浏览器的兼容性问题是前端开发人员经常会碰到和必须要解决的问题。</p>
+</blockquote>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489026381&di=79e83b6d7414a9a23fefa05edea99ca4&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01eed95545149e0000019ae9d0af9b.jpg" class="full-image"></p>
+<h2 id="浏览器兼容问题"><a href="#浏览器兼容问题" class="headerlink" title="浏览器兼容问题"></a>浏览器兼容问题</h2><h3 id="不同的浏览器margin-和padding的最终呈现会有差异问题："><a href="#不同的浏览器margin-和padding的最终呈现会有差异问题：" class="headerlink" title="不同的浏览器margin 和padding的最终呈现会有差异问题："></a>不同的浏览器margin 和padding的最终呈现会有差异问题：</h3><p>在CSS中加入 <em> {margin:0;padding:0;}<br>即用通配符</em>来设置各个标签的内外补丁是0。</p>
+<h3 id="DIV居中问题："><a href="#DIV居中问题：" class="headerlink" title="DIV居中问题："></a>DIV居中问题：</h3><p>在IE中DIV是默认居中，而火狐浏览器默认为左对齐，可尝试增加 {margin: 0 auto;}</p>
+<h3 id="float布局-块属性标签float后，又有横行的margin情况下，显示margin比设置的大："><a href="#float布局-块属性标签float后，又有横行的margin情况下，显示margin比设置的大：" class="headerlink" title="float布局 块属性标签float后，又有横行的margin情况下，显示margin比设置的大："></a>float布局 块属性标签float后，又有横行的margin情况下，显示margin比设置的大：</h3><p>在float的标签样式控制中加入{display:inline;}此元素会被显示为内联元素,其转化为行内属性，元素前后没有换行符。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#divfloat&#123;</div><div class="line">float:left;</div><div class="line">margin:5px;  /*IE下理解为10px*/</div><div class="line">display:inline;  /*IE下再理解为5px*/</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h3 id="图片默认有间距："><a href="#图片默认有间距：" class="headerlink" title="图片默认有间距："></a>图片默认有间距：</h3><p>几个img标签放在一起的时候，有些浏览器会有默认的间距，就连通配符也不起作用。<br>这里最好<code>使用float属性为img布局</code>，元素使用了float属性后，可以使该元素脱离标准流本身，浮动在其他元素之上，使其不再占用原本属于该元素的空间，这样会导致后面的元素上移并占用原本属于该元素的空间。</p>
+<h3 id="padding问题："><a href="#padding问题：" class="headerlink" title="padding问题："></a>padding问题：</h3><p>FF设置 padding 后，div会增加 height 和 width，但IE不会 （* 标准的 XHTML1.0 定义 dtd 好像一致了）高度控制恰当，或尝试使用 height:100%;宽度减少使用 padding但根据实际经验，一般FF和IE的 padding 不会有太大区别，div 的实际宽 = width + padding ，所以div写全 width 和 padding，width 用实际想要的宽减去 padding 定义。</p>
+<h3 id="padding，marign，height，width的解决技巧"><a href="#padding，marign，height，width的解决技巧" class="headerlink" title="padding，marign，height，width的解决技巧"></a>padding，marign，height，width的解决技巧</h3><p>注意是技巧，不是方法：<br>写好标准头<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">”http://www.w3.org/1999/xhtml”</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>高尽量用padding，慎用margin，height尽量补上100%，父级height有定值子级height不用100%，子级全为浮动时底部补个空clear:both的div宽尽量用margin，慎用padding，width算准实际要的减去padding</p>
+<h3 id="IE与宽度和高度的问题"><a href="#IE与宽度和高度的问题" class="headerlink" title="IE与宽度和高度的问题"></a>IE与宽度和高度的问题</h3><p>min- 顾名思义就是最小宽度，在新版的浏览器内可用，在ie浏览器不能用数值表示。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:100%; height:50px; background:#2ec3e7; min-width:800px;min-height: 38px;"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>这个div是全屏的,浏览器不会产生滚动条，但是你把浏览器宽度缩小到800像素的时候，这个div不会再缩小，而浏览器就会产生滚动条。<br>但是在IE中这样使用就有问题了，如果只用宽度和高度，正常的浏览器里这两个值就不会变，如果只用min-width和min-height的话，IE下面根本等于没有设置宽度和高度。要解决这个问题，可以这样：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#box&#123; width: 100%; height: 50px;&#125;</div><div class="line">html&gt;body #box&#123;</div><div class="line">width: auto;</div><div class="line">height: auto;</div><div class="line">min-width: 80px;</div><div class="line">min-height: 38px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>或者：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#container&#123;</div><div class="line">min-width: 600px;</div><div class="line">width:expression(document.body.clientWidth <span class="tag">&lt; <span class="attr">600</span>? "<span class="attr">600px</span>"<span class="attr">:</span> "<span class="attr">auto</span>" );</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第一个min-width是正常的；但第2行的width使用了Javascript，这只有IE才认得，它实际上通过Javascript的判断来实现最小宽度。但是这也会让你的HTML文档不太正规。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 网络 </tag>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[修改hosts来无限制上网]]></title>
-      <url>http://yoursite.com/2016/07/22/hosts/</url>
+      <url>http://yoursite.com/2017/01/12/hosts/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>对于偶尔想看看墙外的风景的网友们是没必要去买一个VPN的（看视频例外），像博主偶尔看看Facebook，用用google的其实最简单的方法就是修改Hosts了，即节约成本，同时速度也还行，具体怎么做其实很简单。</p>
 </blockquote>
@@ -36,7 +74,7 @@
     
     <entry>
       <title><![CDATA[Growing...]]></title>
-      <url>http://yoursite.com/2016/07/18/Growing/</url>
+      <url>http://yoursite.com/2016/12/28/Growing/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>不忘初心，过一段无悔的人生。</p>
 </blockquote>
