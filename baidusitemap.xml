@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/02/16/java%E5%9F%BA%E7%A1%80_%E8%BF%90%E7%AE%97%E7%AC%A6/</loc>
+    <lastmod>2017-04-07T04:05:02.999Z</lastmod>
+    <data>
+        <display>
+        <title>java基础-运算符</title>
+        <pubTime>2017-02-16T04:16:47.000Z</pubTime>
+        
+        <tag>java基础</tag>
+         
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/01/23/web%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2017-03-02T07:12:30.556Z</lastmod>
+    <lastmod>2017-04-07T04:03:00.721Z</lastmod>
     <data>
         <display>
         <title>web开发中的浏览器兼容性问题</title>
