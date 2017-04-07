@@ -371,10 +371,47 @@
           <blockquote>
 <p>在java中运算符分为：算数运算符、关系运算符、逻辑运算符、位运算符。本次将主要学习前四种和理解一些其他运算符。</p>
 </blockquote>
-<p>##算数运算符<br>    算术运算符用在数学表达式中，它们的作用和在数学中的作用一样。<br>|操作符              |描述        |<br>| :————–:   | ————:     |<br>|+             |加法 - 相加运算符两侧的值     |<br>|-              |减法 - 左操作数减去右操作数     |<br>|*              |乘法 - 相乘操作符两侧的值     |<br>|/              |除法 - 左操作数除以右操作数     |<br>|%             |取模 - 左操作数除右操作数的余数     |<br>|++            | 自增 - 操作数的值增加1     |<br>|–              |自减 - 操作数的值减少1     |</p>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><pre><code>算术运算符用在数学表达式中，它们的作用和在数学中的作用一样。
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">操作符</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:left">加法 - 相加运算符两侧的值</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:left">减法 - 左操作数减去右操作数</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:left">乘法 - 相乘操作符两侧的值</td>
+</tr>
+<tr>
+<td style="text-align:center">/</td>
+<td style="text-align:left">除法 - 左操作数除以右操作数</td>
+</tr>
+<tr>
+<td style="text-align:center">%</td>
+<td style="text-align:left">取模 - 左操作数除右操作数的余数</td>
+</tr>
+<tr>
+<td style="text-align:center">++</td>
+<td style="text-align:left">自增 - 操作数的值增加1</td>
+</tr>
+<tr>
+<td style="text-align:center">–</td>
+<td style="text-align:left">自减 - 操作数的值减少1</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>注意：前缀自增或自减(++i ,–i)：先进行自增或者自减运算，再进行表达式运算。（意思是当时就加）。    <pre><code>后缀自增或自减(i++,i--):先进行表达式运算，再进行自增或者自减运算.(意思是第二次使用到它再加)。
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">selfAddMinus</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> a = <span class="number">5</span>;<span class="comment">//定义一个变量；</span></div><div class="line">        <span class="keyword">int</span> b = <span class="number">5</span>;</div><div class="line">        <span class="keyword">int</span> x = <span class="number">2</span>*++a;</div><div class="line">        <span class="keyword">int</span> y = <span class="number">2</span>*b++;</div><div class="line">        System.out.println(<span class="string">"自增运算符前缀运算后a="</span>+a+<span class="string">",x="</span>+x);</div><div class="line">        System.out.println(<span class="string">"自增运算符后缀运算后b="</span>+b+<span class="string">",y="</span>+y);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>注意：前缀自增或自减(++i ,–i)：先进行自增或者自减运算，再进行表达式运算。（意思是当时就加）。<br>后缀自增或自减(i++,i–):先进行表达式运算，再进行自增或者自减运算.(意思是第二次使用到它再加)。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">selfAddMinus</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> a = <span class="number">5</span>;<span class="comment">//定义一个变量；</span></div><div class="line">        <span class="keyword">int</span> b = <span class="number">5</span>;</div><div class="line">        <span class="keyword">int</span> x = <span class="number">2</span>*++a;</div><div class="line">        <span class="keyword">int</span> y = <span class="number">2</span>*b++;</div><div class="line">        System.out.println(<span class="string">"自增运算符前缀运算后a="</span>+a+<span class="string">",x="</span>+x);</div><div class="line">        System.out.println(<span class="string">"自增运算符后缀运算后b="</span>+b+<span class="string">",y="</span>+y);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
@@ -384,33 +421,33 @@
 <thead>
 <tr>
 <th style="text-align:center">操作符</th>
-<th style="text-align:right">描述</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center">==</td>
-<td style="text-align:right">检查如果两个操作数的值是否相等，如果相等则条件为真。</td>
+<td style="text-align:left">检查如果两个操作数的值是否相等，如果相等则条件为真。</td>
 </tr>
 <tr>
 <td style="text-align:center">!=</td>
-<td style="text-align:right">检查如果两个操作数的值是否相等，如果值不相等则条件为真。</td>
+<td style="text-align:left">检查如果两个操作数的值是否相等，如果值不相等则条件为真。</td>
 </tr>
 <tr>
 <td style="text-align:center">&gt;</td>
-<td style="text-align:right">检查左操作数的值是否大于右操作数的值，如果是那么条件为真。</td>
+<td style="text-align:left">检查左操作数的值是否大于右操作数的值，如果是那么条件为真。</td>
 </tr>
 <tr>
 <td style="text-align:center">&lt;</td>
-<td style="text-align:right">检查左操作数的值是否小于右操作数的值，如果是那么条件为真。</td>
+<td style="text-align:left">检查左操作数的值是否小于右操作数的值，如果是那么条件为真。</td>
 </tr>
 <tr>
 <td style="text-align:center">&gt;=</td>
-<td style="text-align:right">检查左操作数的值是否大于或等于右操作数的值，如果是那么条件为真。</td>
+<td style="text-align:left">检查左操作数的值是否大于或等于右操作数的值，如果是那么条件为真。</td>
 </tr>
 <tr>
 <td style="text-align:center">&lt;=</td>
-<td style="text-align:right">检查左操作数的值是否小于或等于右操作数的值，如果是那么条件为真。</td>
+<td style="text-align:left">检查左操作数的值是否小于或等于右操作数的值，如果是那么条件为真。</td>
 </tr>
 </tbody>
 </table>
